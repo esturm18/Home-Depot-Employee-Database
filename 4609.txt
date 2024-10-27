@@ -1,0 +1,36 @@
+
+66
+SpongeBob
+SquarePants
+06/29/2001
+MET Associate
+
+47
+Sandy 
+Cheeks
+03/15/1992
+Lot Associate
+
+110
+Patrick
+Star
+07/04/1994
+Freight Associate
+
+45
+Eugene
+Crabs
+07/05/1996
+Plumbing Associate
+
+171
+Squidward
+Tentacles
+09/01/1993
+Cashier
+
+8
+Sheldon
+Plankton
+11/30/1942
+Freight Associate

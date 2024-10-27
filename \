@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct Node{
+	char *firstName;
+	char *lastName;
+	char *dob; 
+	char *position;
+	struct Node *next; 
+}
+//Function prototypes
+struct Node *initFirstNode(); 
+void createEmployee(struct Node *firstNode, char *firstName, char *lastName, char *dob, char *position); 
+
+int main(int argc, char *argv[]){
+	printf("Welcome to the Home Depot Employee Database!\nIf you are curious on what to do within this database, please type: ? into the command line\n");
+
+	char buffer[1024];  
+	char helpMessage[] = "\nHere is how you can navigate the Home Depot employee database:\n\n<?> Command lists various commands on how to operate the database\n<firstname lastname>  will search for an employee and provide their information\n<c> will create a new employee under that name. When creating a new employee it will ask you various questions about their employee ID number, DOB, etc.\n<r> Remove an employee\n<x> Exit the program"; 
+	printf("Command: "); 
+	int waiting = 1; 
+	char command[1024];
+	char extra[1024];
+        struct Node *firstNode = initFirstNode(); 	
+	while(waiting){
+		fgets(buffer, 1024, stdin);
+		sscanf(buffer, "%s%s", command, extra);
+
+		if (command[0] =='?'){
+			printf("%s\n", helpMessage); 
+		}else if(command[0] == 'x'){
+			printf("Thank you for using the Home Depot employee database. Goodbye!\n");
+			waiting = 0; 
+			exit(0); 
+		}else if(command[0] == 'c'){
+
+			char firstName[1024];
+			char lastName[1024];
+			char dob[1024];
+			char position[1024]; 
+
+			printf("Entering a new employee into the system:\n");
+		        printf("First name: ");
+			fgets(buffer, 1024, stdin);
+			sscanf(buffer, "%s", firstName); 
+			printf("Last name: ");
+			fgets(buffer, 1024, stdin); 
+			sscanf(buffer, "%s", lastName); 
+			printf("DOB: ");
+			fgets(buffer, 1024, stdin);
+			sscanf(buffer, "%s", dob); 
+		        printf("Position: "); 	
+			fgets(buffer, 1024, stdin);
+			sscanf(buffer, "%s", position);
+		        
+			printf("New employee added\n");
+			createEmployee(firstNode, firstName, lastName, dob, position); 	
+
+		}else{
+			printf("Please enter a valid command. Type ? to see valid commands.\n");
+	
+		}
+
+		printf("Command: "); 
+	}
+	return 0; 
+
+}
+
+struct Node *initFirstNode(){
+	struct Node *temp = malloc(sizeof(struct Node));
+       	temp->firstName = NULL;
+	temp->lastName = NULL; 
+	temp->dob = NULL; 
+	temp->position = NULL;
+	temp->next = NULL; 
+	return temp; 
+}
+void createEmployee(struct Node *firstNode, char *firstName, char *lastName, char *dob, char *position){
+	struct Node *newNode = malloc(sizeof(struct Node));
+	newNode->firstName = firstName;
+	newNode->lastName = lastName;
+	newNode->dob = dob;
+	newNode->position = position; 
+	newNode->next = firstNode->next;
+	firstNode->next=newNode; 
+}	

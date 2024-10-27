@@ -1,0 +1,30 @@
+
+100
+Emma
+Sturm
+06
+MET Associate
+
+111
+Bob
+Homer
+02/18/2002
+Lot Associate
+
+121
+Bilbo
+Baggins
+09/20/2000
+Freight Associate
+
+131
+Miley
+Cyrus
+10/13/1999
+Garden Associate
+
+143
+Robert
+Miles
+04/27/1996
+ProDesk Cashier
